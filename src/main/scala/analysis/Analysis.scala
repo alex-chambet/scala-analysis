@@ -8,7 +8,7 @@ object Analysis {
   private final val CORE_NUMBER = 8 // Number of core in my computer
 
   def parAnalysis(arr: Array[String], threshold: Int, data: String): Int = {
-    // Parallel analysisç
+    // Parallel analysis
     def analysis(from: Int, to: Int): Int = {
       if (to - from <= threshold) seqAnalysis(from, to)
       else {
@@ -35,7 +35,7 @@ object Analysis {
     try {
       // val errors = Source.fromFile(filename).getLines().count(l => l.contains(criticalMsg))
       val data = Source.fromFile(filename).getLines().toArray
-      val threshold = data.size / CORE_NUMBER
+      val threshold = data.length / CORE_NUMBER
       println(toFind + " : " + parAnalysis(data, threshold, toFind))
     } catch {
       case ex: Exception => println(ex.getMessage)
